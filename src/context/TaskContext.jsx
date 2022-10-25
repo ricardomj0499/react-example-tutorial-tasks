@@ -2,8 +2,10 @@
 import {useEffect, createContext , useState} from "react";
 import {tasks} from '../data/tasks'
 
-
-
+/* El contexto global dentro del que va a estar toda la App
+Esto para tener la lista de tareas A mano desde cualquier componente de la App
+Asi como sus funciones
+*/
 export const TaskContext = createContext()
 
 export function TaskContextProvider(props)  {
@@ -13,6 +15,7 @@ export function TaskContextProvider(props)  {
     setTsks(tasks)
   }, [])
 
+  // toDo: Como guardar en el archivo la task
   function createTask(taskTitle, taskDesc) {
     setTsks([...tsks, {
       title: taskTitle,
@@ -21,6 +24,7 @@ export function TaskContextProvider(props)  {
     }])
   }
 
+  //Como eliminar del archivo
   function deleteTask(taskId) {
     //const index = array.indexOf(tsks.);
     //if (index > -1) { // only splice array when item is found
